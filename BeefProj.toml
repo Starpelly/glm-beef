@@ -1,0 +1,9 @@
+FileVersion = 1
+
+[Project]
+Name = "glm-beef"
+TargetType = "BeefLib"
+StartupObject = "glm_beef.Program"
+
+[Configs.Debug.Win64]
+BuildKind = "StaticLib"

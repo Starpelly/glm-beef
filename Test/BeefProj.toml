@@ -1,0 +1,6 @@
+FileVersion = 1
+Dependencies = {corlib = "*", glm-beef = "*"}
+
+[Project]
+Name = "Test"
+StartupObject = "Test.Program"

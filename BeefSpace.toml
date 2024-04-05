@@ -1,0 +1,5 @@
+FileVersion = 1
+Projects = {glm-beef = {Path = "."}, Test = {Path = "Test"}}
+
+[Workspace]
+StartupProject = "Test"
