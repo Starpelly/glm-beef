@@ -7,3 +7,7 @@ StartupObject = "glm_beef.Program"
 
 [Configs.Debug.Win64]
 BuildKind = "StaticLib"
+BeefLibType = "Static"
+
+[Configs.Release.Win64]
+BuildKind = "StaticLib"

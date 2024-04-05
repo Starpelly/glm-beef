@@ -15,7 +15,5 @@ class Program
 		{
 
 		}
-
-		return 0;
 	}
 }
