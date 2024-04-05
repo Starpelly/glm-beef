@@ -6,15 +6,15 @@ namespace glm
     public struct qdouble : IEquatable<qdouble>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public double[4] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(double x, double y, double z, double w)
@@ -52,10 +52,10 @@ namespace glm
         {
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Explicitly converts this to a int4.
         public static explicit operator int4(qdouble v) =>  int4((int)v.x, (int)v.y, (int)v.z, (int)v.w);
@@ -96,10 +96,10 @@ namespace glm
         /// Creates a quaternion from the rotational part of a double4x4.
         public static explicit operator qdouble(double4x4 m) => FromMat4(m);
 
-        //#endregion
+        #endregion
 
 
-        //#region Indexer
+        #region Indexer
         
         /// Gets/Sets a specific indexed component (a bit slower than direct access).
         public double this[int index]
@@ -116,10 +116,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// x-component
         public double x
@@ -227,10 +227,10 @@ namespace glm
         /// Returns the inverse quaternion
         public qdouble Inverse => Conjugate / LengthSqr;
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero quaternion
         readonly public static qdouble Zero  =  qdouble(0.0, 0.0, 0.0, 0.0);
@@ -271,10 +271,10 @@ namespace glm
         /// Predefined all-PositiveInfinity quaternion
         readonly public static qdouble PositiveInfinity  =  qdouble(double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity);
 
-        //#endregion
+        #endregion
 
 
-        //#region Operators
+        #region Operators
         
         /// Returns true iff this equals rhs component-wise.
         public static bool operator==(qdouble lhs, qdouble rhs) => lhs.Equals(rhs);
@@ -303,10 +303,10 @@ namespace glm
         /// Returns a vector rotated by the inverted quaternion (preserves v.w).
         public static double4 operator*(double4 v, qdouble q) => q.Inverse * v;
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Returns an array with all values
         public double[] ToArray() => new .[] ( x, y, z, w );
@@ -326,10 +326,10 @@ namespace glm
         /// Rotates this quaternion from an axis and an angle (in radians).
         public qdouble Rotated(double angle, double3 v) => this * FromAxisAngle(angle, v);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Functions
+        #region Static Functions
         
         /// Returns the inner product (dot product, scalar product) of the two quaternions.
         public static double Dot(qdouble lhs, qdouble rhs) => ((lhs.x * rhs.x + lhs.y * rhs.y) + (lhs.z * rhs.z + lhs.w * rhs.w));
@@ -414,10 +414,10 @@ namespace glm
         /// Applies squad interpolation of these quaternions
         public static qdouble Squad(qdouble q1, qdouble q2, qdouble s1, qdouble s2, double h) => Mix(Mix(q1, q2, h), Mix(s1, s2, h), 2 * (1 - h) * h);
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Static Functions
+        #region Component-Wise Static Functions
         
         /// Returns a bool4 from component-wise application of IsInfinity (v.IsInfinity).
         public static bool4 IsInfinity(qdouble v) => bool4(v.x.IsInfinity, v.y.IsInfinity, v.z.IsInfinity, v.w.IsInfinity);
@@ -539,10 +539,10 @@ namespace glm
         /// Returns a qdouble from the application of Lerp (min * (1-a) + max * a).
         public static qdouble Lerp(double min, double max, double a) => qdouble(min * (1-a) + max * a);
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Operator Overloads
+        #region Component-Wise Operator Overloads
         
         /// Returns a bool4 from component-wise application of operator&lt; (lhs &lt; rhs).
         public static bool4 operator<(qdouble lhs, qdouble rhs) => bool4(lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z, lhs.w < rhs.w);
@@ -610,7 +610,7 @@ namespace glm
         /// Returns a qdouble from component-wise application of operator/ (lhs / rhs).
         public static qdouble operator/(qdouble lhs, double rhs) => qdouble(lhs.x / rhs, lhs.y / rhs, lhs.z / rhs, lhs.w / rhs);
 
-        //#endregion
+        #endregion
 
     }
 }

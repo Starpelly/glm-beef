@@ -6,15 +6,15 @@ namespace glm
     public struct double3x3 : IEquatable<double3x3>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public double[9] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(double m00, double m01, double m02, double m10, double m11, double m12, double m20, double m21, double m22)
@@ -106,18 +106,18 @@ namespace glm
         {
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Creates a rotation matrix from a qdouble.
         public static explicit operator double3x3(qdouble  q) => q.ToMat3;
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Column 0, Rows 0
         public double m00
@@ -329,10 +329,10 @@ namespace glm
         /// Creates a quaternion from the rotational part of this matrix.
         public qdouble ToQuaternion => qdouble.FromMat3(this);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero matrix
         readonly public static double3x3 Zero  =  double3x3(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
@@ -379,10 +379,10 @@ namespace glm
         /// Predefined diagonal-PositiveInfinity matrix
         readonly public static double3x3 DiagonalPositiveInfinity  =  double3x3(double.PositiveInfinity, 0.0, 0.0, 0.0, double.PositiveInfinity, 0.0, 0.0, 0.0, double.PositiveInfinity);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Creates a 2D array with all values (address: Values[x, y])
         public double[,] ToArray() => new .[,] ( ( m00, m01, m02 ), ( m10, m11, m12 ), ( m20, m21, m22 ) );
@@ -390,7 +390,7 @@ namespace glm
         /// Creates a 1D array with all values (internal order)
         public double[] ToArray1D() => new .[] ( m00, m01, m02, m10, m11, m12, m20, m21, m22 );
 
-        //#endregion
+        #endregion
 
         
         /// Returns the number of Fields (3 x 3 = 9).

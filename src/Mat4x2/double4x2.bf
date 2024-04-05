@@ -6,15 +6,15 @@ namespace glm
     public struct double4x2 : IEquatable<double4x2>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public double[8] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(double m00, double m01, double m10, double m11, double m20, double m21, double m30, double m31)
@@ -94,10 +94,10 @@ namespace glm
             values = .(c0.x,c0.y,c1.x,c1.y,c2.x,c2.y,c3.x,c3.y);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Column 0, Rows 0
         public double m00
@@ -291,10 +291,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero matrix
         readonly public static double4x2 Zero  =  double4x2(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
@@ -341,10 +341,10 @@ namespace glm
         /// Predefined diagonal-PositiveInfinity matrix
         readonly public static double4x2 DiagonalPositiveInfinity  =  double4x2(double.PositiveInfinity, 0.0, 0.0, double.PositiveInfinity, 0.0, 0.0, 0.0, 0.0);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Creates a 2D array with all values (address: Values[x, y])
         public double[,] ToArray() => new .[,] ( ( m00, m01 ), ( m10, m11 ), ( m20, m21 ), ( m30, m31 ) );
@@ -352,7 +352,7 @@ namespace glm
         /// Creates a 1D array with all values (internal order)
         public double[] ToArray1D() => new .[] ( m00, m01, m10, m11, m20, m21, m30, m31 );
 
-        //#endregion
+        #endregion
 
         
         /// Returns the number of Fields (4 x 2 = 8).

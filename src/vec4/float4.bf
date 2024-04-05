@@ -7,7 +7,7 @@ namespace glm
     public struct float4 : IHashable
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public float[4] values;
@@ -15,10 +15,10 @@ namespace glm
         /// Returns an object that can be used for arbitrary swizzling (e.g. swizzle.zy)
         public readonly swizzle_float4 swizzle;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(float x, float y, float z, float w)
@@ -82,18 +82,18 @@ namespace glm
             values = .((c + startIndex < 0) ? 0f : v[0 + startIndex],(c + startIndex < 1) ? 0f : v[1 + startIndex],(c + startIndex < 2) ? 0f : v[2 + startIndex],(c + startIndex < 3) ? 0f : v[3 + startIndex]);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Implicit Operators
+        #region Implicit Operators
         
         /// Implicitly converts this to a double4.
         public static implicit operator double4(float4 v) =>  double4((double)v.x, (double)v.y, (double)v.z, (double)v.w);
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Explicitly converts this to a int2.
         public static explicit operator int2(float4 v) =>  int2((int)v.x, (int)v.y);
@@ -143,10 +143,10 @@ namespace glm
         /// Explicitly converts this to a bool4.
         public static explicit operator bool4(float4 v) =>  bool4(v.x != 0f, v.y != 0f, v.z != 0f, v.w != 0f);
 
-        //#endregion
+        #endregion
 
 
-        //#region Indexer
+        #region Indexer
         
         /// Gets/Sets a specific indexed component (a bit slower than direct access).
         public float this[int index]
@@ -163,10 +163,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// x-component
         public float x
@@ -628,10 +628,10 @@ namespace glm
         /// Returns a copy of this vector with length one (returns zero if length is zero).
         public float4 NormalizedSafe => this == Zero ? Zero : this / (float)Length;
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero vector
         readonly public static float4 Zero  =  float4(0f, 0f, 0f, 0f);
@@ -681,10 +681,10 @@ namespace glm
         /// Predefined all-PositiveInfinity vector
         readonly public static float4 PositiveInfinity  =  float4(float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity);
 
-        //#endregion
+        #endregion
 
 
-        //#region Operators
+        #region Operators
         
         /// Returns true if this equals rhs component-wise.
         public static bool operator==(float4 lhs, float4 rhs) => ((lhs.x == rhs.x && lhs.y == rhs.y) && (lhs.z == rhs.z && lhs.w == rhs.w));
@@ -692,10 +692,10 @@ namespace glm
         /// Returns true if this does not equal rhs (component-wise).
         public static bool operator!=(float4 lhs, float4 rhs) => !((lhs.x == rhs.x && lhs.y == rhs.y) && (lhs.z == rhs.z && lhs.w == rhs.w));
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Returns an array with all values
         public float[] ToArray() => new .[] ( x, y, z, w );
@@ -725,10 +725,10 @@ namespace glm
         /// Returns the p-norm of this vector.
         public double NormP(double p) => System.Math.Pow(((System.Math.Pow((double)System.Math.Abs(x), p) + System.Math.Pow((double)System.Math.Abs(y), p)) + (System.Math.Pow((double)System.Math.Abs(z), p) + System.Math.Pow((double)System.Math.Abs(w), p))), 1 / p);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Functions
+        #region Static Functions
         
         /// Returns true iff distance between lhs and rhs is less than or equal to epsilon
         public static bool ApproxEqual(float4 lhs, float4 rhs, float eps = 0.1f) => Distance(lhs, rhs) <= eps;
@@ -781,10 +781,10 @@ namespace glm
         /// Returns a float4 with independent and identically distributed values according to a normal distribution (zero mean, unit variance).
         public static float4 RandomNormal(Random random) =>  float4((float)(System.Math.Cos(2 * System.Math.PI_d * random.NextDouble()) * System.Math.Sqrt(-2.0 * System.Math.Log(random.NextDouble()))), (float)(System.Math.Cos(2 * System.Math.PI_d * random.NextDouble()) * System.Math.Sqrt(-2.0 * System.Math.Log(random.NextDouble()))), (float)(System.Math.Cos(2 * System.Math.PI_d * random.NextDouble()) * System.Math.Sqrt(-2.0 * System.Math.Log(random.NextDouble()))), (float)(System.Math.Cos(2 * System.Math.PI_d * random.NextDouble()) * System.Math.Sqrt(-2.0 * System.Math.Log(random.NextDouble()))));
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Static Functions
+        #region Component-Wise Static Functions
         
         /// Returns a bool4 from component-wise application of Equal (lhs == rhs).
         public static bool4 Equal(float4 lhs, float4 rhs) => bool4(lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z, lhs.w == rhs.w);
@@ -1326,10 +1326,10 @@ namespace glm
         /// Returns a float4 with independent and identically distributed values according to a normal/Gaussian distribution with specified mean and variance.
         public static float4 RandomGaussian(Random random, float mean, float variance) => float4((float)(System.Math.Sqrt((double)variance) * System.Math.Cos(2 * System.Math.PI_d * random.NextDouble()) * System.Math.Sqrt(-2.0 * System.Math.Log(random.NextDouble()))) + mean);
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Operator Overloads
+        #region Component-Wise Operator Overloads
         
         /// Returns a bool4 from component-wise application of operator&lt; (lhs &lt; rhs).
         public static bool4 operator<(float4 lhs, float4 rhs) => bool4(lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z, lhs.w < rhs.w);
@@ -1415,7 +1415,7 @@ namespace glm
         /// Returns a float4 from component-wise application of operator% (lhs % rhs).
         public static float4 operator%(float lhs, float4 rhs) => float4(lhs % rhs.x, lhs % rhs.y, lhs % rhs.z, lhs % rhs.w);
 
-        //#endregion
+        #endregion
 
     }
 }

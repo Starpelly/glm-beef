@@ -6,15 +6,15 @@ namespace glm
     public struct double4x3 : IEquatable<double4x3>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public double[12] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(double m00, double m01, double m02, double m10, double m11, double m12, double m20, double m21, double m22, double m30, double m31, double m32)
@@ -112,10 +112,10 @@ namespace glm
             values = .(c0.x,c0.y,c0.z,c1.x,c1.y,c1.z,c2.x,c2.y,c2.z,c3.x,c3.y,c3.z);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Column 0, Rows 0
         public double m00
@@ -381,10 +381,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero matrix
         readonly public static double4x3 Zero  =  double4x3(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
@@ -431,10 +431,10 @@ namespace glm
         /// Predefined diagonal-PositiveInfinity matrix
         readonly public static double4x3 DiagonalPositiveInfinity  =  double4x3(double.PositiveInfinity, 0.0, 0.0, 0.0, double.PositiveInfinity, 0.0, 0.0, 0.0, double.PositiveInfinity, 0.0, 0.0, 0.0);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Creates a 2D array with all values (address: Values[x, y])
         public double[,] ToArray() => new .[,] ( ( m00, m01, m02 ), ( m10, m11, m12 ), ( m20, m21, m22 ), ( m30, m31, m32 ) );
@@ -442,7 +442,7 @@ namespace glm
         /// Creates a 1D array with all values (internal order)
         public double[] ToArray1D() => new .[] ( m00, m01, m02, m10, m11, m12, m20, m21, m22, m30, m31, m32 );
 
-        //#endregion
+        #endregion
 
         
         /// Returns the number of Fields (4 x 3 = 12).

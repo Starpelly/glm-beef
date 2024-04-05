@@ -6,7 +6,7 @@ namespace glm
     public struct swizzle_long2
     {
 
-        //#region Fields
+        #region Fields
         
         /// x-component
         private readonly long x;
@@ -14,10 +14,10 @@ namespace glm
         /// y-component
         private readonly long y;
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Returns long2.xx swizzling.
         [Inline]
@@ -243,7 +243,7 @@ namespace glm
         [Inline]
         public long4 gggg =>  long4(y, y, y, y);
 
-        //#endregion
+        #endregion
 
     }
 }

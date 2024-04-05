@@ -6,15 +6,15 @@ namespace glm
     public struct bool3x2 : IEquatable<bool3x2>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public bool[6] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(bool m00, bool m01, bool m10, bool m11, bool m20, bool m21)
@@ -88,10 +88,10 @@ namespace glm
             values = .(c0.x,c0.y,c1.x,c1.y,c2.x,c2.y);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Column 0, Rows 0
         public bool m00
@@ -243,10 +243,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero matrix
         readonly public static bool3x2 Zero  =  bool3x2(false, false, false, false, false, false);
@@ -257,10 +257,10 @@ namespace glm
         /// Predefined identity matrix
         readonly public static bool3x2 Identity  =  bool3x2(true, false, false, true, false, false);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Creates a 2D array with all values (address: Values[x, y])
         public bool[,] ToArray() => new .[,] ( ( m00, m01 ), ( m10, m11 ), ( m20, m21 ) );
@@ -268,7 +268,7 @@ namespace glm
         /// Creates a 1D array with all values (internal order)
         public bool[] ToArray1D() => new .[] ( m00, m01, m10, m11, m20, m21 );
 
-        //#endregion
+        #endregion
 
         
         /// Returns the number of Fields (3 x 2 = 6).

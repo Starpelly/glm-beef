@@ -6,15 +6,15 @@ namespace glm
     public struct bool4x3 : IEquatable<bool4x3>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public bool[12] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(bool m00, bool m01, bool m02, bool m10, bool m11, bool m12, bool m20, bool m21, bool m22, bool m30, bool m31, bool m32)
@@ -112,10 +112,10 @@ namespace glm
             values = .(c0.x,c0.y,c0.z,c1.x,c1.y,c1.z,c2.x,c2.y,c2.z,c3.x,c3.y,c3.z);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Column 0, Rows 0
         public bool m00
@@ -381,10 +381,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero matrix
         readonly public static bool4x3 Zero  =  bool4x3(false, false, false, false, false, false, false, false, false, false, false, false);
@@ -395,10 +395,10 @@ namespace glm
         /// Predefined identity matrix
         readonly public static bool4x3 Identity  =  bool4x3(true, false, false, false, true, false, false, false, true, false, false, false);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Creates a 2D array with all values (address: Values[x, y])
         public bool[,] ToArray() => new .[,] ( ( m00, m01, m02 ), ( m10, m11, m12 ), ( m20, m21, m22 ), ( m30, m31, m32 ) );
@@ -406,7 +406,7 @@ namespace glm
         /// Creates a 1D array with all values (internal order)
         public bool[] ToArray1D() => new .[] ( m00, m01, m02, m10, m11, m12, m20, m21, m22, m30, m31, m32 );
 
-        //#endregion
+        #endregion
 
         
         /// Returns the number of Fields (4 x 3 = 12).

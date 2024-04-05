@@ -6,7 +6,7 @@ namespace glm
     public struct swizzle_float3
     {
 
-        //#region Fields
+        #region Fields
         
         /// x-component
         private readonly float x;
@@ -17,10 +17,10 @@ namespace glm
         /// z-component
         private readonly float z;
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Returns float3.xx swizzling.
         [Inline]
@@ -958,7 +958,7 @@ namespace glm
         [Inline]
         public float4 bbbb =>  float4(z, z, z, z);
 
-        //#endregion
+        #endregion
 
     }
 }

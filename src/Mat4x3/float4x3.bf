@@ -6,15 +6,15 @@ namespace glm
     public struct float4x3 : IEquatable<float4x3>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public float[12] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(float m00, float m01, float m02, float m10, float m11, float m12, float m20, float m21, float m22, float m30, float m31, float m32)
@@ -112,10 +112,10 @@ namespace glm
             values = .(c0.x,c0.y,c0.z,c1.x,c1.y,c1.z,c2.x,c2.y,c2.z,c3.x,c3.y,c3.z);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Column 0, Rows 0
         public float m00
@@ -381,10 +381,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero matrix
         readonly public static float4x3 Zero  =  float4x3(0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f);
@@ -431,10 +431,10 @@ namespace glm
         /// Predefined diagonal-PositiveInfinity matrix
         readonly public static float4x3 DiagonalPositiveInfinity  =  float4x3(float.PositiveInfinity, 0f, 0f, 0f, float.PositiveInfinity, 0f, 0f, 0f, float.PositiveInfinity, 0f, 0f, 0f);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Creates a 2D array with all values (address: Values[x, y])
         public float[,] ToArray() => new .[,] ( ( m00, m01, m02 ), ( m10, m11, m12 ), ( m20, m21, m22 ), ( m30, m31, m32 ) );
@@ -442,7 +442,7 @@ namespace glm
         /// Creates a 1D array with all values (internal order)
         public float[] ToArray1D() => new .[] ( m00, m01, m02, m10, m11, m12, m20, m21, m22, m30, m31, m32 );
 
-        //#endregion
+        #endregion
 
         
         /// Returns the number of Fields (4 x 3 = 12).

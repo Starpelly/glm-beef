@@ -6,15 +6,15 @@ namespace glm
     public struct double4x4 : IEquatable<double4x4>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public double[16] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(double m00, double m01, double m02, double m03, double m10, double m11, double m12, double m13, double m20, double m21, double m22, double m23, double m30, double m31, double m32, double m33)
@@ -136,18 +136,18 @@ namespace glm
         {
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Creates a rotation matrix from a qdouble.
         public static explicit operator double4x4(qdouble  q) => q.ToMat4;
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Column 0, Rows 0
         public double m00
@@ -488,10 +488,10 @@ namespace glm
         /// Creates a quaternion from the rotational part of this matrix.
         public qdouble ToQuaternion => qdouble.FromMat4(this);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero matrix
         readonly public static double4x4 Zero  =  double4x4(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0);
@@ -538,10 +538,10 @@ namespace glm
         /// Predefined diagonal-PositiveInfinity matrix
         readonly public static double4x4 DiagonalPositiveInfinity  =  double4x4(double.PositiveInfinity, 0.0, 0.0, 0.0, 0.0, double.PositiveInfinity, 0.0, 0.0, 0.0, 0.0, double.PositiveInfinity, 0.0, 0.0, 0.0, 0.0, double.PositiveInfinity);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Creates a 2D array with all values (address: Values[x, y])
         public double[,] ToArray() => new .[,] ( ( m00, m01, m02, m03 ), ( m10, m11, m12, m13 ), ( m20, m21, m22, m23 ), ( m30, m31, m32, m33 ) );
@@ -549,7 +549,7 @@ namespace glm
         /// Creates a 1D array with all values (internal order)
         public double[] ToArray1D() => new .[] ( m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33 );
 
-        //#endregion
+        #endregion
 
         
         /// Returns the number of Fields (4 x 4 = 16).

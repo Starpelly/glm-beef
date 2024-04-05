@@ -6,7 +6,7 @@ namespace glm
     public struct swizzle_int3
     {
 
-        //#region Fields
+        #region Fields
         
         /// x-component
         private readonly int x;
@@ -17,10 +17,10 @@ namespace glm
         /// z-component
         private readonly int z;
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Returns int3.xx swizzling.
         [Inline]
@@ -958,7 +958,7 @@ namespace glm
         [Inline]
         public int4 bbbb =>  int4(z, z, z, z);
 
-        //#endregion
+        #endregion
 
     }
 }

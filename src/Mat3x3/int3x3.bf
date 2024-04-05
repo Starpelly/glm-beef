@@ -6,15 +6,15 @@ namespace glm
     public struct int3x3 : IEquatable<int3x3>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public int[9] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(int m00, int m01, int m02, int m10, int m11, int m12, int m20, int m21, int m22)
@@ -100,10 +100,10 @@ namespace glm
             values = .(c0.x,c0.y,c0.z,c1.x,c1.y,c1.z,c2.x,c2.y,c2.z);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Column 0, Rows 0
         public int m00
@@ -312,10 +312,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero matrix
         readonly public static int3x3 Zero  =  int3x3(0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -338,10 +338,10 @@ namespace glm
         /// Predefined diagonal-MinValue matrix
         readonly public static int3x3 DiagonalMinValue  =  int3x3(int.MinValue, 0, 0, 0, int.MinValue, 0, 0, 0, int.MinValue);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Creates a 2D array with all values (address: Values[x, y])
         public int[,] ToArray() => new .[,] ( ( m00, m01, m02 ), ( m10, m11, m12 ), ( m20, m21, m22 ) );
@@ -349,7 +349,7 @@ namespace glm
         /// Creates a 1D array with all values (internal order)
         public int[] ToArray1D() => new .[] ( m00, m01, m02, m10, m11, m12, m20, m21, m22 );
 
-        //#endregion
+        #endregion
 
         
         /// Returns the number of Fields (3 x 3 = 9).

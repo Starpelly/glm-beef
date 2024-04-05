@@ -6,15 +6,15 @@ namespace glm
     public struct qfloat : IEquatable<qfloat>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public float[4] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(float x, float y, float z, float w)
@@ -52,18 +52,18 @@ namespace glm
         {
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Implicit Operators
+        #region Implicit Operators
         
         /// Implicitly converts this to a qdouble.
         public static implicit operator qdouble(qfloat v) =>  qdouble((double)v.x, (double)v.y, (double)v.z, (double)v.w);
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Explicitly converts this to a int4.
         public static explicit operator int4(qfloat v) =>  int4((int)v.x, (int)v.y, (int)v.z, (int)v.w);
@@ -101,10 +101,10 @@ namespace glm
         /// Creates a quaternion from the rotational part of a float4x4.
         public static explicit operator qfloat(float4x4 m) => FromMat4(m);
 
-        //#endregion
+        #endregion
 
 
-        //#region Indexer
+        #region Indexer
         
         /// Gets/Sets a specific indexed component (a bit slower than direct access).
         public float this[int index]
@@ -121,10 +121,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// x-component
         public float x
@@ -232,10 +232,10 @@ namespace glm
         /// Returns the inverse quaternion
         public qfloat Inverse => Conjugate / LengthSqr;
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero quaternion
         readonly public static qfloat Zero  =  qfloat(0f, 0f, 0f, 0f);
@@ -276,10 +276,10 @@ namespace glm
         /// Predefined all-PositiveInfinity quaternion
         readonly public static qfloat PositiveInfinity  =  qfloat(float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity);
 
-        //#endregion
+        #endregion
 
 
-        //#region Operators
+        #region Operators
         
         /// Returns true iff this equals rhs component-wise.
         public static bool operator==(qfloat lhs, qfloat rhs) => lhs.Equals(rhs);
@@ -308,10 +308,10 @@ namespace glm
         /// Returns a vector rotated by the inverted quaternion (preserves v.w).
         public static float4 operator*(float4 v, qfloat q) => q.Inverse * v;
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Returns an array with all values
         public float[] ToArray() => new .[] ( x, y, z, w );
@@ -331,10 +331,10 @@ namespace glm
         /// Rotates this quaternion from an axis and an angle (in radians).
         public qfloat Rotated(float angle, float3 v) => this * FromAxisAngle(angle, v);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Functions
+        #region Static Functions
         
         /// Returns the inner product (dot product, scalar product) of the two quaternions.
         public static float Dot(qfloat lhs, qfloat rhs) => ((lhs.x * rhs.x + lhs.y * rhs.y) + (lhs.z * rhs.z + lhs.w * rhs.w));
@@ -419,10 +419,10 @@ namespace glm
         /// Applies squad interpolation of these quaternions
         public static qfloat Squad(qfloat q1, qfloat q2, qfloat s1, qfloat s2, float h) => Mix(Mix(q1, q2, h), Mix(s1, s2, h), 2 * (1 - h) * h);
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Static Functions
+        #region Component-Wise Static Functions
         
         /// Returns a bool4 from component-wise application of IsInfinity (v.IsInfinity).
         public static bool4 IsInfinity(qfloat v) => bool4(v.x.IsInfinity, v.y.IsInfinity, v.z.IsInfinity, v.w.IsInfinity);
@@ -550,10 +550,10 @@ namespace glm
         /// Returns a qfloat from the application of Lerp (min * (1-a) + max * a).
         public static qfloat Lerp(float min, float max, float a) => qfloat(min * (1-a) + max * a);
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Operator Overloads
+        #region Component-Wise Operator Overloads
         
         /// Returns a bool4 from component-wise application of operator&lt; (lhs &lt; rhs).
         public static bool4 operator<(qfloat lhs, qfloat rhs) => bool4(lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z, lhs.w < rhs.w);
@@ -621,7 +621,7 @@ namespace glm
         /// Returns a qfloat from component-wise application of operator/ (lhs / rhs).
         public static qfloat operator/(qfloat lhs, float rhs) => qfloat(lhs.x / rhs, lhs.y / rhs, lhs.z / rhs, lhs.w / rhs);
 
-        //#endregion
+        #endregion
 
     }
 }

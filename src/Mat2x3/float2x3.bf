@@ -6,15 +6,15 @@ namespace glm
     public struct float2x3 : IEquatable<float2x3>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public float[6] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(float m00, float m01, float m02, float m10, float m11, float m12)
@@ -88,10 +88,10 @@ namespace glm
             values = .(c0.x,c0.y,c0.z,c1.x,c1.y,c1.z);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Column 0, Rows 0
         public float m00
@@ -243,10 +243,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero matrix
         readonly public static float2x3 Zero  =  float2x3(0f, 0f, 0f, 0f, 0f, 0f);
@@ -293,10 +293,10 @@ namespace glm
         /// Predefined diagonal-PositiveInfinity matrix
         readonly public static float2x3 DiagonalPositiveInfinity  =  float2x3(float.PositiveInfinity, 0f, 0f, 0f, float.PositiveInfinity, 0f);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Creates a 2D array with all values (address: Values[x, y])
         public float[,] ToArray() => new .[,] ( ( m00, m01, m02 ), ( m10, m11, m12 ) );
@@ -304,7 +304,7 @@ namespace glm
         /// Creates a 1D array with all values (internal order)
         public float[] ToArray1D() => new .[] ( m00, m01, m02, m10, m11, m12 );
 
-        //#endregion
+        #endregion
 
         
         /// Returns the number of Fields (2 x 3 = 6).

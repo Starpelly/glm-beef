@@ -7,7 +7,7 @@ namespace glm
     public struct bool3
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public bool[3] values;
@@ -15,10 +15,10 @@ namespace glm
         /// Returns an object that can be used for arbitrary swizzling (e.g. swizzle.zy)
         public readonly swizzle_bool3 swizzle;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(bool x, bool y, bool z)
@@ -70,10 +70,10 @@ namespace glm
             values = .((c + startIndex < 0) ? false : v[0 + startIndex],(c + startIndex < 1) ? false : v[1 + startIndex],(c + startIndex < 2) ? false : v[2 + startIndex]);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Explicitly converts this to a int2.
         public static explicit operator int2(bool3 v) =>  int2(v.x ? 1 : 0, v.y ? 1 : 0);
@@ -126,10 +126,10 @@ namespace glm
         /// Explicitly converts this to a bool4. (Higher components are zeroed)
         public static explicit operator bool4(bool3 v) =>  bool4((bool)v.x, (bool)v.y, (bool)v.z, false);
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// x-component
         public bool x
@@ -338,10 +338,10 @@ namespace glm
         /// Returns true if any component is true.
         public bool Any => ((x || y) || z);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero vector
         readonly public static bool3 Zero  =  bool3(false, false, false);
@@ -358,10 +358,10 @@ namespace glm
         /// Predefined unit-Z vector
         readonly public static bool3 UnitZ  =  bool3(false, false, true);
 
-        //#endregion
+        #endregion
 
 
-        //#region Operators
+        #region Operators
         
         /// Returns true if this equals rhs component-wise.
         public static bool operator==(bool3 lhs, bool3 rhs) => ((lhs.x == rhs.x && lhs.y == rhs.y) && lhs.z == rhs.z);
@@ -369,10 +369,10 @@ namespace glm
         /// Returns true if this does not equal rhs (component-wise).
         public static bool operator!=(bool3 lhs, bool3 rhs) => !((lhs.x == rhs.x && lhs.y == rhs.y) && lhs.z == rhs.z);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Returns an array with all values
         public bool[] ToArray() => new .[] ( x, y, z );
@@ -398,18 +398,18 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Functions
+        #region Static Functions
         
         /// Returns a bool3 with independent and identically distributed random true/false values (the probability for 'true' can be configured).
         public static bool3 Random(Random random, float trueProbability = 0.5f) =>  bool3(random.NextDouble() < trueProbability, random.NextDouble() < trueProbability, random.NextDouble() < trueProbability);
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Static Functions
+        #region Component-Wise Static Functions
         
         /// Returns a bool3 from component-wise application of Equal (lhs == rhs).
         public static bool3 Equal(bool3 lhs, bool3 rhs) => bool3(lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z);
@@ -513,10 +513,10 @@ namespace glm
         /// Returns a bool from the application of Xnor (lhs == rhs).
         public static bool3 Xnor(bool lhs, bool rhs) => bool3(lhs == rhs);
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Operator Overloads
+        #region Component-Wise Operator Overloads
         
         /// Returns a bool3 from component-wise application of operator! (!v).
         public static bool3 operator!(bool3 v) => bool3(!v.x, !v.y, !v.z);
@@ -539,7 +539,7 @@ namespace glm
         /// Returns a bool3 from component-wise application of operator| (lhs || rhs).
         public static bool3 operator|(bool lhs, bool3 rhs) => bool3(lhs || rhs.x, lhs || rhs.y, lhs || rhs.z);
 
-        //#endregion
+        #endregion
 
     }
 }

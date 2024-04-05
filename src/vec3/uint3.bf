@@ -7,7 +7,7 @@ namespace glm
     public struct uint3 : IHashable
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public uint[3] values;
@@ -15,10 +15,10 @@ namespace glm
         /// Returns an object that can be used for arbitrary swizzling (e.g. swizzle.zy)
         public readonly swizzle_uint3 swizzle;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(uint x, uint y, uint z)
@@ -70,10 +70,10 @@ namespace glm
             values = .((c + startIndex < 0) ? 0u : v[0 + startIndex],(c + startIndex < 1) ? 0u : v[1 + startIndex],(c + startIndex < 2) ? 0u : v[2 + startIndex]);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Implicit Operators
+        #region Implicit Operators
         
         /// Implicitly converts this to a long3.
         public static implicit operator long3(uint3 v) =>  long3((long)v.x, (long)v.y, (long)v.z);
@@ -84,10 +84,10 @@ namespace glm
         /// Implicitly converts this to a double3.
         public static implicit operator double3(uint3 v) =>  double3((double)v.x, (double)v.y, (double)v.z);
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Explicitly converts this to a int2.
         public static explicit operator int2(uint3 v) =>  int2((int)v.x, (int)v.y);
@@ -131,10 +131,10 @@ namespace glm
         /// Explicitly converts this to a bool4. (Higher components are zeroed)
         public static explicit operator bool4(uint3 v) =>  bool4(v.x != 0u, v.y != 0u, v.z != 0u, false);
 
-        //#endregion
+        #endregion
 
 
-        //#region Indexer
+        #region Indexer
         
         /// Gets/Sets a specific indexed component (a bit slower than direct access).
         public uint this[int index]
@@ -151,10 +151,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// x-component
         public uint x
@@ -378,10 +378,10 @@ namespace glm
         /// Returns the max-norm of this vector.
         public float NormMax => System.Math.Max(System.Math.Max(x, y), z);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero vector
         readonly public static uint3 Zero  =  uint3(0u, 0u, 0u);
@@ -404,10 +404,10 @@ namespace glm
         /// Predefined all-MinValue vector
         readonly public static uint3 MinValue  =  uint3(uint.MinValue, uint.MinValue, uint.MinValue);
 
-        //#endregion
+        #endregion
 
 
-        //#region Operators
+        #region Operators
         
         /// Returns true if this equals rhs component-wise.
         public static bool operator==(uint3 lhs, uint3 rhs) => ((lhs.x == rhs.x && lhs.y == rhs.y) && lhs.z == rhs.z);
@@ -415,10 +415,10 @@ namespace glm
         /// Returns true if this does not equal rhs (component-wise).
         public static bool operator!=(uint3 lhs, uint3 rhs) => !((lhs.x == rhs.x && lhs.y == rhs.y) && lhs.z == rhs.z);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Returns an array with all values
         public uint[] ToArray() => new .[] ( x, y, z );
@@ -447,10 +447,10 @@ namespace glm
         /// Returns the p-norm of this vector.
         public double NormP(double p) => System.Math.Pow(((System.Math.Pow((double)x, p) + System.Math.Pow((double)y, p)) + System.Math.Pow((double)z, p)), 1 / p);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Functions
+        #region Static Functions
         
         /// OuterProduct treats the first parameter c as a column vector (matrix with one column) and the second parameter r as a row vector (matrix with one row) and does a linear algebraic matrix multiply c * r, yielding a matrix whose number of rows is the number of components in c and whose number of columns is the number of components in r.
         public static uint3x2 OuterProduct(uint2 c, uint3 r) =>  uint3x2(c.x * r.x, c.y * r.x, c.x * r.y, c.y * r.y, c.x * r.z, c.y * r.z);
@@ -482,10 +482,10 @@ namespace glm
         /// Returns a uint3 with independent and identically distributed uniform integer values between 0 (inclusive) and int.MaxValue (exclusive).
         public static uint3 Random(Random random) =>  uint3((uint)random.Next(int64.MaxValue), (uint)random.Next(int64.MaxValue), (uint)random.Next(int64.MaxValue));
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Static Functions
+        #region Component-Wise Static Functions
         
         /// Returns a bool3 from component-wise application of Equal (lhs == rhs).
         public static bool3 Equal(uint3 lhs, uint3 rhs) => bool3(lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z);
@@ -901,10 +901,10 @@ namespace glm
         /// Returns a uint3 with independent and identically distributed uniform integer values between minValue (inclusive) and maxValue (exclusive). (minValue == maxValue is allowed and returns minValue. Negative values are allowed.)
         public static uint3 RandomUniform(Random random, uint minValue, uint maxValue) => uint3((uint)random.Next((int)minValue, (int)maxValue));
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Operator Overloads
+        #region Component-Wise Operator Overloads
         
         /// Returns a bool3 from component-wise application of operator&lt; (lhs &lt; rhs).
         public static bool3 operator<(uint3 lhs, uint3 rhs) => bool3(lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z);
@@ -1014,7 +1014,7 @@ namespace glm
         /// Returns a uint3 from component-wise application of operator&gt;&gt; (lhs &gt;&gt; rhs).
         public static uint3 operator>>(uint3 lhs, int rhs) => uint3(lhs.x >> rhs, lhs.y >> rhs, lhs.z >> rhs);
 
-        //#endregion
+        #endregion
 
     }
 }

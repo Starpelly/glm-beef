@@ -6,7 +6,7 @@ namespace glm
     public struct swizzle_bool2
     {
 
-        //#region Fields
+        #region Fields
         
         /// x-component
         private readonly bool x;
@@ -14,10 +14,10 @@ namespace glm
         /// y-component
         private readonly bool y;
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Returns bool2.xx swizzling.
         [Inline]
@@ -243,7 +243,7 @@ namespace glm
         [Inline]
         public bool4 gggg =>  bool4(y, y, y, y);
 
-        //#endregion
+        #endregion
 
     }
 }

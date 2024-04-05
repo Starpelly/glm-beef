@@ -7,7 +7,7 @@ namespace glm
     public struct bool4
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public bool[4] values;
@@ -15,10 +15,10 @@ namespace glm
         /// Returns an object that can be used for arbitrary swizzling (e.g. swizzle.zy)
         public readonly swizzle_bool4 swizzle;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(bool x, bool y, bool z, bool w)
@@ -82,10 +82,10 @@ namespace glm
             values = .((c + startIndex < 0) ? false : v[0 + startIndex],(c + startIndex < 1) ? false : v[1 + startIndex],(c + startIndex < 2) ? false : v[2 + startIndex],(c + startIndex < 3) ? false : v[3 + startIndex]);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Explicitly converts this to a int2.
         public static explicit operator int2(bool4 v) =>  int2(v.x ? 1 : 0, v.y ? 1 : 0);
@@ -138,10 +138,10 @@ namespace glm
         /// Explicitly converts this to a bool3.
         public static explicit operator bool3(bool4 v) =>  bool3((bool)v.x, (bool)v.y, (bool)v.z);
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// x-component
         public bool x
@@ -582,10 +582,10 @@ namespace glm
         /// Returns true if any component is true.
         public bool Any => ((x || y) || (z || w));
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero vector
         readonly public static bool4 Zero  =  bool4(false, false, false, false);
@@ -605,10 +605,10 @@ namespace glm
         /// Predefined unit-W vector
         readonly public static bool4 UnitW  =  bool4(false, false, false, true);
 
-        //#endregion
+        #endregion
 
 
-        //#region Operators
+        #region Operators
         
         /// Returns true if this equals rhs component-wise.
         public static bool operator==(bool4 lhs, bool4 rhs) => ((lhs.x == rhs.x && lhs.y == rhs.y) && (lhs.z == rhs.z && lhs.w == rhs.w));
@@ -616,10 +616,10 @@ namespace glm
         /// Returns true if this does not equal rhs (component-wise).
         public static bool operator!=(bool4 lhs, bool4 rhs) => !((lhs.x == rhs.x && lhs.y == rhs.y) && (lhs.z == rhs.z && lhs.w == rhs.w));
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Returns an array with all values
         public bool[] ToArray() => new .[] ( x, y, z, w );
@@ -646,18 +646,18 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Functions
+        #region Static Functions
         
         /// Returns a bool4 with independent and identically distributed random true/false values (the probability for 'true' can be configured).
         public static bool4 Random(Random random, float trueProbability = 0.5f) =>  bool4(random.NextDouble() < trueProbability, random.NextDouble() < trueProbability, random.NextDouble() < trueProbability, random.NextDouble() < trueProbability);
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Static Functions
+        #region Component-Wise Static Functions
         
         /// Returns a bool4 from component-wise application of Equal (lhs == rhs).
         public static bool4 Equal(bool4 lhs, bool4 rhs) => bool4(lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z, lhs.w == rhs.w);
@@ -761,10 +761,10 @@ namespace glm
         /// Returns a bool from the application of Xnor (lhs == rhs).
         public static bool4 Xnor(bool lhs, bool rhs) => bool4(lhs == rhs);
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Operator Overloads
+        #region Component-Wise Operator Overloads
         
         /// Returns a bool4 from component-wise application of operator! (!v).
         public static bool4 operator!(bool4 v) => bool4(!v.x, !v.y, !v.z, !v.w);
@@ -787,7 +787,7 @@ namespace glm
         /// Returns a bool4 from component-wise application of operator| (lhs || rhs).
         public static bool4 operator|(bool lhs, bool4 rhs) => bool4(lhs || rhs.x, lhs || rhs.y, lhs || rhs.z, lhs || rhs.w);
 
-        //#endregion
+        #endregion
 
     }
 }

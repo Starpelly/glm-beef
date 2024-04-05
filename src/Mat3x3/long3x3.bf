@@ -6,15 +6,15 @@ namespace glm
     public struct long3x3 : IEquatable<long3x3>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public long[9] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(long m00, long m01, long m02, long m10, long m11, long m12, long m20, long m21, long m22)
@@ -100,10 +100,10 @@ namespace glm
             values = .(c0.x,c0.y,c0.z,c1.x,c1.y,c1.z,c2.x,c2.y,c2.z);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Column 0, Rows 0
         public long m00
@@ -312,10 +312,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero matrix
         readonly public static long3x3 Zero  =  long3x3(0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -338,10 +338,10 @@ namespace glm
         /// Predefined diagonal-MinValue matrix
         readonly public static long3x3 DiagonalMinValue  =  long3x3(long.MinValue, 0, 0, 0, long.MinValue, 0, 0, 0, long.MinValue);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Creates a 2D array with all values (address: Values[x, y])
         public long[,] ToArray() => new .[,] ( ( m00, m01, m02 ), ( m10, m11, m12 ), ( m20, m21, m22 ) );
@@ -349,7 +349,7 @@ namespace glm
         /// Creates a 1D array with all values (internal order)
         public long[] ToArray1D() => new .[] ( m00, m01, m02, m10, m11, m12, m20, m21, m22 );
 
-        //#endregion
+        #endregion
 
         
         /// Returns the number of Fields (3 x 3 = 9).

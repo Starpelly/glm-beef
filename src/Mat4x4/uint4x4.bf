@@ -6,15 +6,15 @@ namespace glm
     public struct uint4x4 : IEquatable<uint4x4>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public uint[16] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(uint m00, uint m01, uint m02, uint m03, uint m10, uint m11, uint m12, uint m13, uint m20, uint m21, uint m22, uint m23, uint m30, uint m31, uint m32, uint m33)
@@ -130,10 +130,10 @@ namespace glm
             values = .(c0.x,c0.y,c0.z,c0.w,c1.x,c1.y,c1.z,c1.w,c2.x,c2.y,c2.z,c2.w,c3.x,c3.y,c3.z,c3.w);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Column 0, Rows 0
         public uint m00
@@ -471,10 +471,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero matrix
         readonly public static uint4x4 Zero  =  uint4x4(0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u);
@@ -497,10 +497,10 @@ namespace glm
         /// Predefined diagonal-MinValue matrix
         readonly public static uint4x4 DiagonalMinValue  =  uint4x4(uint.MinValue, 0u, 0u, 0u, 0u, uint.MinValue, 0u, 0u, 0u, 0u, uint.MinValue, 0u, 0u, 0u, 0u, uint.MinValue);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Creates a 2D array with all values (address: Values[x, y])
         public uint[,] ToArray() => new .[,] ( ( m00, m01, m02, m03 ), ( m10, m11, m12, m13 ), ( m20, m21, m22, m23 ), ( m30, m31, m32, m33 ) );
@@ -508,7 +508,7 @@ namespace glm
         /// Creates a 1D array with all values (internal order)
         public uint[] ToArray1D() => new .[] ( m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33 );
 
-        //#endregion
+        #endregion
 
         
         /// Returns the number of Fields (4 x 4 = 16).

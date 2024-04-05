@@ -6,15 +6,15 @@ namespace glm
     public struct uint2x2 : IEquatable<uint2x2>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public uint[4] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(uint m00, uint m01, uint m10, uint m11)
@@ -82,10 +82,10 @@ namespace glm
             values = .(c0.x,c0.y,c1.x,c1.y);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Column 0, Rows 0
         public uint m00
@@ -195,10 +195,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero matrix
         readonly public static uint2x2 Zero  =  uint2x2(0u, 0u, 0u, 0u);
@@ -221,10 +221,10 @@ namespace glm
         /// Predefined diagonal-MinValue matrix
         readonly public static uint2x2 DiagonalMinValue  =  uint2x2(uint.MinValue, 0u, 0u, uint.MinValue);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Creates a 2D array with all values (address: Values[x, y])
         public uint[,] ToArray() => new .[,] ( ( m00, m01 ), ( m10, m11 ) );
@@ -232,7 +232,7 @@ namespace glm
         /// Creates a 1D array with all values (internal order)
         public uint[] ToArray1D() => new .[] ( m00, m01, m10, m11 );
 
-        //#endregion
+        #endregion
 
         
         /// Returns the number of Fields (2 x 2 = 4).

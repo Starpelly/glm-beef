@@ -7,7 +7,7 @@ namespace glm
     public struct long4 : IHashable
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public long[4] values;
@@ -15,10 +15,10 @@ namespace glm
         /// Returns an object that can be used for arbitrary swizzling (e.g. swizzle.zy)
         public readonly swizzle_long4 swizzle;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(long x, long y, long z, long w)
@@ -82,10 +82,10 @@ namespace glm
             values = .((c + startIndex < 0) ? 0 : v[0 + startIndex],(c + startIndex < 1) ? 0 : v[1 + startIndex],(c + startIndex < 2) ? 0 : v[2 + startIndex],(c + startIndex < 3) ? 0 : v[3 + startIndex]);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Explicitly converts this to a int2.
         public static explicit operator int2(long4 v) =>  int2((int)v.x, (int)v.y);
@@ -138,10 +138,10 @@ namespace glm
         /// Explicitly converts this to a bool4.
         public static explicit operator bool4(long4 v) =>  bool4(v.x != 0, v.y != 0, v.z != 0, v.w != 0);
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// x-component
         public long x
@@ -597,10 +597,10 @@ namespace glm
         /// Returns the max-norm of this vector.
         public double NormMax => System.Math.Max(System.Math.Max(System.Math.Abs(x), System.Math.Abs(y)), System.Math.Max(System.Math.Abs(z), System.Math.Abs(w)));
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero vector
         readonly public static long4 Zero  =  long4(0, 0, 0, 0);
@@ -638,10 +638,10 @@ namespace glm
         /// Predefined all-MinValue vector
         readonly public static long4 MinValue  =  long4(long.MinValue, long.MinValue, long.MinValue, long.MinValue);
 
-        //#endregion
+        #endregion
 
 
-        //#region Operators
+        #region Operators
         
         /// Returns true if this equals rhs component-wise.
         public static bool operator==(long4 lhs, long4 rhs) => ((lhs.x == rhs.x && lhs.y == rhs.y) && (lhs.z == rhs.z && lhs.w == rhs.w));
@@ -649,10 +649,10 @@ namespace glm
         /// Returns true if this does not equal rhs (component-wise).
         public static bool operator!=(long4 lhs, long4 rhs) => !((lhs.x == rhs.x && lhs.y == rhs.y) && (lhs.z == rhs.z && lhs.w == rhs.w));
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Returns an array with all values
         public long[] ToArray() => new .[] ( x, y, z, w );
@@ -682,10 +682,10 @@ namespace glm
         /// Returns the p-norm of this vector.
         public double NormP(double p) => System.Math.Pow(((System.Math.Pow((double)System.Math.Abs(x), p) + System.Math.Pow((double)System.Math.Abs(y), p)) + (System.Math.Pow((double)System.Math.Abs(z), p) + System.Math.Pow((double)System.Math.Abs(w), p))), 1 / p);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Functions
+        #region Static Functions
         
         /// OuterProduct treats the first parameter c as a column vector (matrix with one column) and the second parameter r as a row vector (matrix with one row) and does a linear algebraic matrix multiply c * r, yielding a matrix whose number of rows is the number of components in c and whose number of columns is the number of components in r.
         public static long4x2 OuterProduct(long2 c, long4 r) =>  long4x2(c.x * r.x, c.y * r.x, c.x * r.y, c.y * r.y, c.x * r.z, c.y * r.z, c.x * r.w, c.y * r.w);
@@ -729,10 +729,10 @@ namespace glm
         /// Returns a long4 with independent and identically distributed uniform integer values between 0 (inclusive) and int.MaxValue (exclusive).
         public static long4 Random(Random random) =>  long4((long)random.Next(int64.MaxValue), (long)random.Next(int64.MaxValue), (long)random.Next(int64.MaxValue), (long)random.Next(int64.MaxValue));
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Static Functions
+        #region Component-Wise Static Functions
         
         /// Returns a bool4 from component-wise application of Equal (lhs == rhs).
         public static bool4 Equal(long4 lhs, long4 rhs) => bool4(lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z, lhs.w == rhs.w);
@@ -1148,10 +1148,10 @@ namespace glm
         /// Returns a long4 with independent and identically distributed uniform integer values between minValue (inclusive) and maxValue (exclusive). (minValue == maxValue is allowed and returns minValue. Negative values are allowed.)
         public static long4 RandomUniform(Random random, long minValue, long maxValue) => long4((long)random.Next((int)minValue, (int)maxValue));
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Operator Overloads
+        #region Component-Wise Operator Overloads
         
         /// Returns a bool4 from component-wise application of operator&lt; (lhs &lt; rhs).
         public static bool4 operator<(long4 lhs, long4 rhs) => bool4(lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z, lhs.w < rhs.w);
@@ -1264,7 +1264,7 @@ namespace glm
         /// Returns a long4 from component-wise application of operator&gt;&gt; (lhs &gt;&gt; rhs).
         public static long4 operator>>(long4 lhs, int rhs) => long4(lhs.x >> rhs, lhs.y >> rhs, lhs.z >> rhs, lhs.w >> rhs);
 
-        //#endregion
+        #endregion
 
     }
 }

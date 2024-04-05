@@ -7,7 +7,7 @@ namespace glm
     public struct bool2
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public bool[2] values;
@@ -15,10 +15,10 @@ namespace glm
         /// Returns an object that can be used for arbitrary swizzling (e.g. swizzle.zy)
         public readonly swizzle_bool2 swizzle;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(bool x, bool y)
@@ -64,10 +64,10 @@ namespace glm
             values = .((c + startIndex < 0) ? false : v[0 + startIndex],(c + startIndex < 1) ? false : v[1 + startIndex]);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Explicitly converts this to a int2.
         public static explicit operator int2(bool2 v) =>  int2(v.x ? 1 : 0, v.y ? 1 : 0);
@@ -120,10 +120,10 @@ namespace glm
         /// Explicitly converts this to a bool4. (Higher components are zeroed)
         public static explicit operator bool4(bool2 v) =>  bool4((bool)v.x, (bool)v.y, false, false);
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// x-component
         public bool x
@@ -246,10 +246,10 @@ namespace glm
         /// Returns true if any component is true.
         public bool Any => (x || y);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero vector
         readonly public static bool2 Zero  =  bool2(false, false);
@@ -263,10 +263,10 @@ namespace glm
         /// Predefined unit-Y vector
         readonly public static bool2 UnitY  =  bool2(false, true);
 
-        //#endregion
+        #endregion
 
 
-        //#region Operators
+        #region Operators
         
         /// Returns true if this equals rhs component-wise.
         public static bool operator==(bool2 lhs, bool2 rhs) => (lhs.x == rhs.x && lhs.y == rhs.y);
@@ -274,10 +274,10 @@ namespace glm
         /// Returns true if this does not equal rhs (component-wise).
         public static bool operator!=(bool2 lhs, bool2 rhs) => !(lhs.x == rhs.x && lhs.y == rhs.y);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Returns an array with all values
         public bool[] ToArray() => new .[] ( x, y );
@@ -302,18 +302,18 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Functions
+        #region Static Functions
         
         /// Returns a bool2 with independent and identically distributed random true/false values (the probability for 'true' can be configured).
         public static bool2 Random(Random random, float trueProbability = 0.5f) =>  bool2(random.NextDouble() < trueProbability, random.NextDouble() < trueProbability);
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Static Functions
+        #region Component-Wise Static Functions
         
         /// Returns a bool2 from component-wise application of Equal (lhs == rhs).
         public static bool2 Equal(bool2 lhs, bool2 rhs) => bool2(lhs.x == rhs.x, lhs.y == rhs.y);
@@ -417,10 +417,10 @@ namespace glm
         /// Returns a bool from the application of Xnor (lhs == rhs).
         public static bool2 Xnor(bool lhs, bool rhs) => bool2(lhs == rhs);
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Operator Overloads
+        #region Component-Wise Operator Overloads
         
         /// Returns a bool2 from component-wise application of operator! (!v).
         public static bool2 operator!(bool2 v) => bool2(!v.x, !v.y);
@@ -443,7 +443,7 @@ namespace glm
         /// Returns a bool2 from component-wise application of operator| (lhs || rhs).
         public static bool2 operator|(bool lhs, bool2 rhs) => bool2(lhs || rhs.x, lhs || rhs.y);
 
-        //#endregion
+        #endregion
 
     }
 }

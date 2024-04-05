@@ -6,15 +6,15 @@ namespace glm
     public struct quint : IEquatable<quint>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public uint[4] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(uint x, uint y, uint z, uint w)
@@ -40,10 +40,10 @@ namespace glm
             values = .(v.x,v.y,v.z,s);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Implicit Operators
+        #region Implicit Operators
         
         /// Implicitly converts this to a qlong.
         public static implicit operator qlong(quint v) =>  qlong((long)v.x, (long)v.y, (long)v.z, (long)v.w);
@@ -54,10 +54,10 @@ namespace glm
         /// Implicitly converts this to a qdouble.
         public static implicit operator qdouble(quint v) =>  qdouble((double)v.x, (double)v.y, (double)v.z, (double)v.w);
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Explicitly converts this to a int4.
         public static explicit operator int4(quint v) =>  int4((int)v.x, (int)v.y, (int)v.z, (int)v.w);
@@ -83,10 +83,10 @@ namespace glm
         /// Explicitly converts this to a qbool.
         public static explicit operator qbool(quint v) =>  qbool(v.x != 0u, v.y != 0u, v.z != 0u, v.w != 0u);
 
-        //#endregion
+        #endregion
 
 
-        //#region Indexer
+        #region Indexer
         
         /// Gets/Sets a specific indexed component (a bit slower than direct access).
         public uint this[int index]
@@ -103,10 +103,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// x-component
         public uint x
@@ -169,10 +169,10 @@ namespace glm
         /// Returns the squared euclidean length of this quaternion.
         public uint LengthSqr => ((x*x + y*y) + (z*z + w*w));
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero quaternion
         readonly public static quint Zero  =  quint(0u, 0u, 0u, 0u);
@@ -201,10 +201,10 @@ namespace glm
         /// Predefined all-MinValue quaternion
         readonly public static quint MinValue  =  quint(uint.MinValue, uint.MinValue, uint.MinValue, uint.MinValue);
 
-        //#endregion
+        #endregion
 
 
-        //#region Operators
+        #region Operators
         
         /// Returns true iff this equals rhs component-wise.
         public static bool operator==(quint lhs, quint rhs) => lhs.Equals(rhs);
@@ -227,10 +227,10 @@ namespace glm
         /// Returns a vector rotated by the quaternion (preserves v.w).
         public static uint4 operator*(quint q, uint4 v) =>  uint4(q *  uint3(v), v.w);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Returns an array with all values
         public uint[] ToArray() => new .[] ( x, y, z, w );
@@ -247,10 +247,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Functions
+        #region Static Functions
         
         /// Returns the inner product (dot product, scalar product) of the two quaternions.
         public static uint Dot(quint lhs, quint rhs) => ((lhs.x * rhs.x + lhs.y * rhs.y) + (lhs.z * rhs.z + lhs.w * rhs.w));
@@ -258,10 +258,10 @@ namespace glm
         /// Returns the cross product between two quaternions.
         public static quint Cross(quint q1, quint q2) =>  quint(q1.w * q2.x + q1.x * q2.w + q1.y * q2.z - q1.z * q2.y, q1.w * q2.y + q1.y * q2.w + q1.z * q2.x - q1.x * q2.z, q1.w * q2.z + q1.z * q2.w + q1.x * q2.y - q1.y * q2.x, q1.w * q2.w - q1.x * q2.x - q1.y * q2.y - q1.z * q2.z);
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Static Functions
+        #region Component-Wise Static Functions
         
         /// Returns a bool4 from component-wise application of Equal (lhs == rhs).
         public static bool4 Equal(quint lhs, quint rhs) => bool4(lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z, lhs.w == rhs.w);
@@ -359,10 +359,10 @@ namespace glm
         /// Returns a quint from the application of Lerp (min * (1-a) + max * a).
         public static quint Lerp(uint min, uint max, uint a) => quint(min * (1-a) + max * a);
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Operator Overloads
+        #region Component-Wise Operator Overloads
         
         /// Returns a bool4 from component-wise application of operator&lt; (lhs &lt; rhs).
         public static bool4 operator<(quint lhs, quint rhs) => bool4(lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z, lhs.w < rhs.w);
@@ -427,7 +427,7 @@ namespace glm
         /// Returns a quint from component-wise application of operator/ (lhs / rhs).
         public static quint operator/(quint lhs, uint rhs) => quint(lhs.x / rhs, lhs.y / rhs, lhs.z / rhs, lhs.w / rhs);
 
-        //#endregion
+        #endregion
 
     }
 }

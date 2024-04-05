@@ -7,7 +7,7 @@ namespace glm
     public struct float3 : IHashable
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public float[3] values;
@@ -15,10 +15,10 @@ namespace glm
         /// Returns an object that can be used for arbitrary swizzling (e.g. swizzle.zy)
         public readonly swizzle_float3 swizzle;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(float x, float y, float z)
@@ -70,18 +70,18 @@ namespace glm
             values = .((c + startIndex < 0) ? 0f : v[0 + startIndex],(c + startIndex < 1) ? 0f : v[1 + startIndex],(c + startIndex < 2) ? 0f : v[2 + startIndex]);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Implicit Operators
+        #region Implicit Operators
         
         /// Implicitly converts this to a double3.
         public static implicit operator double3(float3 v) =>  double3((double)v.x, (double)v.y, (double)v.z);
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Explicitly converts this to a int2.
         public static explicit operator int2(float3 v) =>  int2((int)v.x, (int)v.y);
@@ -131,10 +131,10 @@ namespace glm
         /// Explicitly converts this to a bool4. (Higher components are zeroed)
         public static explicit operator bool4(float3 v) =>  bool4(v.x != 0f, v.y != 0f, v.z != 0f, false);
 
-        //#endregion
+        #endregion
 
 
-        //#region Indexer
+        #region Indexer
         
         /// Gets/Sets a specific indexed component (a bit slower than direct access).
         public float this[int index]
@@ -151,10 +151,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// x-component
         public float x
@@ -384,10 +384,10 @@ namespace glm
         /// Returns a copy of this vector with length one (returns zero if length is zero).
         public float3 NormalizedSafe => this == Zero ? Zero : this / (float)Length;
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero vector
         readonly public static float3 Zero  =  float3(0f, 0f, 0f);
@@ -431,10 +431,10 @@ namespace glm
         /// Predefined all-PositiveInfinity vector
         readonly public static float3 PositiveInfinity  =  float3(float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity);
 
-        //#endregion
+        #endregion
 
 
-        //#region Operators
+        #region Operators
         
         /// Returns true if this equals rhs component-wise.
         public static bool operator==(float3 lhs, float3 rhs) => ((lhs.x == rhs.x && lhs.y == rhs.y) && lhs.z == rhs.z);
@@ -442,10 +442,10 @@ namespace glm
         /// Returns true if this does not equal rhs (component-wise).
         public static bool operator!=(float3 lhs, float3 rhs) => !((lhs.x == rhs.x && lhs.y == rhs.y) && lhs.z == rhs.z);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Returns an array with all values
         public float[] ToArray() => new .[] ( x, y, z );
@@ -474,10 +474,10 @@ namespace glm
         /// Returns the p-norm of this vector.
         public double NormP(double p) => System.Math.Pow(((System.Math.Pow((double)System.Math.Abs(x), p) + System.Math.Pow((double)System.Math.Abs(y), p)) + System.Math.Pow((double)System.Math.Abs(z), p)), 1 / p);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Functions
+        #region Static Functions
         
         /// Returns true iff distance between lhs and rhs is less than or equal to epsilon
         public static bool ApproxEqual(float3 lhs, float3 rhs, float eps = 0.1f) => Distance(lhs, rhs) <= eps;
@@ -533,10 +533,10 @@ namespace glm
         /// Returns a float3 with independent and identically distributed values according to a normal distribution (zero mean, unit variance).
         public static float3 RandomNormal(Random random) =>  float3((float)(System.Math.Cos(2 * System.Math.PI_d * random.NextDouble()) * System.Math.Sqrt(-2.0 * System.Math.Log(random.NextDouble()))), (float)(System.Math.Cos(2 * System.Math.PI_d * random.NextDouble()) * System.Math.Sqrt(-2.0 * System.Math.Log(random.NextDouble()))), (float)(System.Math.Cos(2 * System.Math.PI_d * random.NextDouble()) * System.Math.Sqrt(-2.0 * System.Math.Log(random.NextDouble()))));
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Static Functions
+        #region Component-Wise Static Functions
         
         /// Returns a bool3 from component-wise application of Equal (lhs == rhs).
         public static bool3 Equal(float3 lhs, float3 rhs) => bool3(lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z);
@@ -1078,10 +1078,10 @@ namespace glm
         /// Returns a float3 with independent and identically distributed values according to a normal/Gaussian distribution with specified mean and variance.
         public static float3 RandomGaussian(Random random, float mean, float variance) => float3((float)(System.Math.Sqrt((double)variance) * System.Math.Cos(2 * System.Math.PI_d * random.NextDouble()) * System.Math.Sqrt(-2.0 * System.Math.Log(random.NextDouble()))) + mean);
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Operator Overloads
+        #region Component-Wise Operator Overloads
         
         /// Returns a bool3 from component-wise application of operator&lt; (lhs &lt; rhs).
         public static bool3 operator<(float3 lhs, float3 rhs) => bool3(lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z);
@@ -1167,7 +1167,7 @@ namespace glm
         /// Returns a float3 from component-wise application of operator% (lhs % rhs).
         public static float3 operator%(float lhs, float3 rhs) => float3(lhs % rhs.x, lhs % rhs.y, lhs % rhs.z);
 
-        //#endregion
+        #endregion
 
     }
 }

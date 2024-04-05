@@ -7,7 +7,7 @@ namespace glm
     public struct float2 : IHashable
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public float[2] values;
@@ -15,10 +15,10 @@ namespace glm
         /// Returns an object that can be used for arbitrary swizzling (e.g. swizzle.zy)
         public readonly swizzle_float2 swizzle;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(float x, float y)
@@ -64,18 +64,18 @@ namespace glm
             values = .((c + startIndex < 0) ? 0f : v[0 + startIndex],(c + startIndex < 1) ? 0f : v[1 + startIndex]);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Implicit Operators
+        #region Implicit Operators
         
         /// Implicitly converts this to a double2.
         public static implicit operator double2(float2 v) =>  double2((double)v.x, (double)v.y);
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Explicitly converts this to a int2.
         public static explicit operator int2(float2 v) =>  int2((int)v.x, (int)v.y);
@@ -125,10 +125,10 @@ namespace glm
         /// Explicitly converts this to a bool4. (Higher components are zeroed)
         public static explicit operator bool4(float2 v) =>  bool4(v.x != 0f, v.y != 0f, false, false);
 
-        //#endregion
+        #endregion
 
 
-        //#region Indexer
+        #region Indexer
         
         /// Gets/Sets a specific indexed component (a bit slower than direct access).
         public float this[int index]
@@ -145,10 +145,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// x-component
         public float x
@@ -298,10 +298,10 @@ namespace glm
         /// Returns a perpendicular vector.
         public float2 Perpendicular => float2(y, -x);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero vector
         readonly public static float2 Zero  =  float2(0f, 0f);
@@ -339,10 +339,10 @@ namespace glm
         /// Predefined all-PositiveInfinity vector
         readonly public static float2 PositiveInfinity  =  float2(float.PositiveInfinity, float.PositiveInfinity);
 
-        //#endregion
+        #endregion
 
 
-        //#region Operators
+        #region Operators
         
         /// Returns true if this equals rhs component-wise.
         public static bool operator==(float2 lhs, float2 rhs) => (lhs.x == rhs.x && lhs.y == rhs.y);
@@ -350,10 +350,10 @@ namespace glm
         /// Returns true if this does not equal rhs (component-wise).
         public static bool operator!=(float2 lhs, float2 rhs) => !(lhs.x == rhs.x && lhs.y == rhs.y);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Returns an array with all values
         public float[] ToArray() => new .[] ( x, y );
@@ -384,10 +384,10 @@ namespace glm
         /// Returns a 2D vector that was rotated by a given angle in radians (CAUTION: result is casted and may be truncated).
         public float2 Rotated(double angleInRad) => (float2)(double2.FromAngle(Angle + angleInRad) * (double)Length);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Functions
+        #region Static Functions
         
         /// Returns true iff distance between lhs and rhs is less than or equal to epsilon
         public static bool ApproxEqual(float2 lhs, float2 rhs, float eps = 0.1f) => Distance(lhs, rhs) <= eps;
@@ -446,10 +446,10 @@ namespace glm
         /// Returns a float2 with independent and identically distributed values according to a normal distribution (zero mean, unit variance).
         public static float2 RandomNormal(Random random) =>  float2((float)(System.Math.Cos(2 * System.Math.PI_d * random.NextDouble()) * System.Math.Sqrt(-2.0 * System.Math.Log(random.NextDouble()))), (float)(System.Math.Cos(2 * System.Math.PI_d * random.NextDouble()) * System.Math.Sqrt(-2.0 * System.Math.Log(random.NextDouble()))));
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Static Functions
+        #region Component-Wise Static Functions
         
         /// Returns a bool2 from component-wise application of Equal (lhs == rhs).
         public static bool2 Equal(float2 lhs, float2 rhs) => bool2(lhs.x == rhs.x, lhs.y == rhs.y);
@@ -991,10 +991,10 @@ namespace glm
         /// Returns a float2 with independent and identically distributed values according to a normal/Gaussian distribution with specified mean and variance.
         public static float2 RandomGaussian(Random random, float mean, float variance) => float2((float)(System.Math.Sqrt((double)variance) * System.Math.Cos(2 * System.Math.PI_d * random.NextDouble()) * System.Math.Sqrt(-2.0 * System.Math.Log(random.NextDouble()))) + mean);
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Operator Overloads
+        #region Component-Wise Operator Overloads
         
         /// Returns a bool2 from component-wise application of operator&lt; (lhs &lt; rhs).
         public static bool2 operator<(float2 lhs, float2 rhs) => bool2(lhs.x < rhs.x, lhs.y < rhs.y);
@@ -1080,7 +1080,7 @@ namespace glm
         /// Returns a float2 from component-wise application of operator% (lhs % rhs).
         public static float2 operator%(float lhs, float2 rhs) => float2(lhs % rhs.x, lhs % rhs.y);
 
-        //#endregion
+        #endregion
 
     }
 }

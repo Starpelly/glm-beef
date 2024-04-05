@@ -6,15 +6,15 @@ namespace glm
     public struct float3x3 : IEquatable<float3x3>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public float[9] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(float m00, float m01, float m02, float m10, float m11, float m12, float m20, float m21, float m22)
@@ -106,18 +106,18 @@ namespace glm
         {
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Creates a rotation matrix from a qfloat.
         public static explicit operator float3x3(qfloat  q) => q.ToMat3;
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Column 0, Rows 0
         public float m00
@@ -329,10 +329,10 @@ namespace glm
         /// Creates a quaternion from the rotational part of this matrix.
         public qfloat ToQuaternion => qfloat.FromMat3(this);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero matrix
         readonly public static float3x3 Zero  =  float3x3(0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f, 0f);
@@ -379,10 +379,10 @@ namespace glm
         /// Predefined diagonal-PositiveInfinity matrix
         readonly public static float3x3 DiagonalPositiveInfinity  =  float3x3(float.PositiveInfinity, 0f, 0f, 0f, float.PositiveInfinity, 0f, 0f, 0f, float.PositiveInfinity);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Creates a 2D array with all values (address: Values[x, y])
         public float[,] ToArray() => new .[,] ( ( m00, m01, m02 ), ( m10, m11, m12 ), ( m20, m21, m22 ) );
@@ -390,7 +390,7 @@ namespace glm
         /// Creates a 1D array with all values (internal order)
         public float[] ToArray1D() => new .[] ( m00, m01, m02, m10, m11, m12, m20, m21, m22 );
 
-        //#endregion
+        #endregion
 
         
         /// Returns the number of Fields (3 x 3 = 9).

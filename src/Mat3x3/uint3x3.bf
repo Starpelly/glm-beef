@@ -6,15 +6,15 @@ namespace glm
     public struct uint3x3 : IEquatable<uint3x3>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public uint[9] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(uint m00, uint m01, uint m02, uint m10, uint m11, uint m12, uint m20, uint m21, uint m22)
@@ -100,10 +100,10 @@ namespace glm
             values = .(c0.x,c0.y,c0.z,c1.x,c1.y,c1.z,c2.x,c2.y,c2.z);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Column 0, Rows 0
         public uint m00
@@ -312,10 +312,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero matrix
         readonly public static uint3x3 Zero  =  uint3x3(0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u);
@@ -338,10 +338,10 @@ namespace glm
         /// Predefined diagonal-MinValue matrix
         readonly public static uint3x3 DiagonalMinValue  =  uint3x3(uint.MinValue, 0u, 0u, 0u, uint.MinValue, 0u, 0u, 0u, uint.MinValue);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Creates a 2D array with all values (address: Values[x, y])
         public uint[,] ToArray() => new .[,] ( ( m00, m01, m02 ), ( m10, m11, m12 ), ( m20, m21, m22 ) );
@@ -349,7 +349,7 @@ namespace glm
         /// Creates a 1D array with all values (internal order)
         public uint[] ToArray1D() => new .[] ( m00, m01, m02, m10, m11, m12, m20, m21, m22 );
 
-        //#endregion
+        #endregion
 
         
         /// Returns the number of Fields (3 x 3 = 9).

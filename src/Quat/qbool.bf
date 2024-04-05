@@ -6,15 +6,15 @@ namespace glm
     public struct qbool : IEquatable<qbool>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public bool[4] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(bool x, bool y, bool z, bool w)
@@ -40,10 +40,10 @@ namespace glm
             values = .(v.x,v.y,v.z,s);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Explicitly converts this to a int4.
         public static explicit operator int4(qbool v) =>  int4(v.x ? 1 : 0, v.y ? 1 : 0, v.z ? 1 : 0, v.w ? 1 : 0);
@@ -78,10 +78,10 @@ namespace glm
         /// Explicitly converts this to a bool4.
         public static explicit operator bool4(qbool v) =>  bool4((bool)v.x, (bool)v.y, (bool)v.z, (bool)v.w);
 
-        //#endregion
+        #endregion
 
 
-        //#region Indexer
+        #region Indexer
         
         /// Gets/Sets a specific indexed component (a bit slower than direct access).
         public bool this[int index]
@@ -98,10 +98,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// x-component
         public bool x
@@ -170,10 +170,10 @@ namespace glm
         /// Returns true if any component is true.
         public bool Any => ((x || y) || (z || w));
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero quaternion
         readonly public static qbool Zero  =  qbool(false, false, false, false);
@@ -196,10 +196,10 @@ namespace glm
         /// Predefined unit-W quaternion
         readonly public static qbool UnitW  =  qbool(false, false, false, true);
 
-        //#endregion
+        #endregion
 
 
-        //#region Operators
+        #region Operators
         
         /// Returns true iff this equals rhs component-wise.
         public static bool operator==(qbool lhs, qbool rhs) => lhs.Equals(rhs);
@@ -207,10 +207,10 @@ namespace glm
         /// Returns true iff this does not equal rhs (component-wise).
         public static bool operator!=(qbool lhs, qbool rhs) => !lhs.Equals(rhs);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Returns an array with all values
         public bool[] ToArray() => new .[] ( x, y, z, w );
@@ -227,10 +227,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Static Functions
+        #region Component-Wise Static Functions
         
         /// Returns a bool4 from component-wise application of Equal (lhs == rhs).
         public static bool4 Equal(qbool lhs, qbool rhs) => bool4(lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z, lhs.w == rhs.w);
@@ -334,10 +334,10 @@ namespace glm
         /// Returns a qbool from the application of Xnor (lhs == rhs).
         public static qbool Xnor(bool lhs, bool rhs) => qbool(lhs == rhs);
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Operator Overloads
+        #region Component-Wise Operator Overloads
         
         /// Returns a qbool from component-wise application of operator! (!v).
         public static qbool operator!(qbool v) => qbool(!v.x, !v.y, !v.z, !v.w);
@@ -360,7 +360,7 @@ namespace glm
         /// Returns a qbool from component-wise application of operator| (lhs || rhs).
         public static qbool operator|(bool lhs, qbool rhs) => qbool(lhs || rhs.x, lhs || rhs.y, lhs || rhs.z, lhs || rhs.w);
 
-        //#endregion
+        #endregion
 
     }
 }

@@ -6,15 +6,15 @@ namespace glm
     public struct long2x4 : IEquatable<long2x4>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public long[8] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(long m00, long m01, long m02, long m03, long m10, long m11, long m12, long m13)
@@ -94,10 +94,10 @@ namespace glm
             values = .(c0.x,c0.y,c0.z,c0.w,c1.x,c1.y,c1.z,c1.w);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Column 0, Rows 0
         public long m00
@@ -291,10 +291,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero matrix
         readonly public static long2x4 Zero  =  long2x4(0, 0, 0, 0, 0, 0, 0, 0);
@@ -317,10 +317,10 @@ namespace glm
         /// Predefined diagonal-MinValue matrix
         readonly public static long2x4 DiagonalMinValue  =  long2x4(long.MinValue, 0, 0, 0, 0, long.MinValue, 0, 0);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Creates a 2D array with all values (address: Values[x, y])
         public long[,] ToArray() => new .[,] ( ( m00, m01, m02, m03 ), ( m10, m11, m12, m13 ) );
@@ -328,7 +328,7 @@ namespace glm
         /// Creates a 1D array with all values (internal order)
         public long[] ToArray1D() => new .[] ( m00, m01, m02, m03, m10, m11, m12, m13 );
 
-        //#endregion
+        #endregion
 
         
         /// Returns the number of Fields (2 x 4 = 8).

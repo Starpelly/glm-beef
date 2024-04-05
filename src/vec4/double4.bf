@@ -7,7 +7,7 @@ namespace glm
     public struct double4 : IHashable
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public double[4] values;
@@ -15,10 +15,10 @@ namespace glm
         /// Returns an object that can be used for arbitrary swizzling (e.g. swizzle.zy)
         public readonly swizzle_double4 swizzle;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(double x, double y, double z, double w)
@@ -82,10 +82,10 @@ namespace glm
             values = .((c + startIndex < 0) ? 0.0 : v[0 + startIndex],(c + startIndex < 1) ? 0.0 : v[1 + startIndex],(c + startIndex < 2) ? 0.0 : v[2 + startIndex],(c + startIndex < 3) ? 0.0 : v[3 + startIndex]);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Explicitly converts this to a int2.
         public static explicit operator int2(double4 v) =>  int2((int)v.x, (int)v.y);
@@ -138,10 +138,10 @@ namespace glm
         /// Explicitly converts this to a bool4.
         public static explicit operator bool4(double4 v) =>  bool4(v.x != 0.0, v.y != 0.0, v.z != 0.0, v.w != 0.0);
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// x-component
         public double x
@@ -603,10 +603,10 @@ namespace glm
         /// Returns a copy of this vector with length one (returns zero if length is zero).
         public double4 NormalizedSafe => this == Zero ? Zero : this / (double)Length;
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero vector
         readonly public static double4 Zero  =  double4(0.0, 0.0, 0.0, 0.0);
@@ -656,10 +656,10 @@ namespace glm
         /// Predefined all-PositiveInfinity vector
         readonly public static double4 PositiveInfinity  =  double4(double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity);
 
-        //#endregion
+        #endregion
 
 
-        //#region Operators
+        #region Operators
         
         /// Returns true if this equals rhs component-wise.
         public static bool operator==(double4 lhs, double4 rhs) => ((lhs.x == rhs.x && lhs.y == rhs.y) && (lhs.z == rhs.z && lhs.w == rhs.w));
@@ -667,10 +667,10 @@ namespace glm
         /// Returns true if this does not equal rhs (component-wise).
         public static bool operator!=(double4 lhs, double4 rhs) => !((lhs.x == rhs.x && lhs.y == rhs.y) && (lhs.z == rhs.z && lhs.w == rhs.w));
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Returns an array with all values
         public double[] ToArray() => new .[] ( x, y, z, w );
@@ -700,10 +700,10 @@ namespace glm
         /// Returns the p-norm of this vector.
         public double NormP(double p) => System.Math.Pow(((System.Math.Pow((double)System.Math.Abs(x), p) + System.Math.Pow((double)System.Math.Abs(y), p)) + (System.Math.Pow((double)System.Math.Abs(z), p) + System.Math.Pow((double)System.Math.Abs(w), p))), 1 / p);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Functions
+        #region Static Functions
         
         /// Returns true iff distance between lhs and rhs is less than or equal to epsilon
         public static bool ApproxEqual(double4 lhs, double4 rhs, double eps = 0.1d) => Distance(lhs, rhs) <= eps;
@@ -756,10 +756,10 @@ namespace glm
         /// Returns a double4 with independent and identically distributed values according to a normal distribution (zero mean, unit variance).
         public static double4 RandomNormal(Random random) =>  double4((double)(System.Math.Cos(2 * System.Math.PI_d * random.NextDouble()) * System.Math.Sqrt(-2.0 * System.Math.Log(random.NextDouble()))), (double)(System.Math.Cos(2 * System.Math.PI_d * random.NextDouble()) * System.Math.Sqrt(-2.0 * System.Math.Log(random.NextDouble()))), (double)(System.Math.Cos(2 * System.Math.PI_d * random.NextDouble()) * System.Math.Sqrt(-2.0 * System.Math.Log(random.NextDouble()))), (double)(System.Math.Cos(2 * System.Math.PI_d * random.NextDouble()) * System.Math.Sqrt(-2.0 * System.Math.Log(random.NextDouble()))));
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Static Functions
+        #region Component-Wise Static Functions
         
         /// Returns a bool4 from component-wise application of Equal (lhs == rhs).
         public static bool4 Equal(double4 lhs, double4 rhs) => bool4(lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z, lhs.w == rhs.w);
@@ -1295,10 +1295,10 @@ namespace glm
         /// Returns a double4 with independent and identically distributed values according to a normal/Gaussian distribution with specified mean and variance.
         public static double4 RandomGaussian(Random random, double mean, double variance) => double4((double)(System.Math.Sqrt((double)variance) * System.Math.Cos(2 * System.Math.PI_d * random.NextDouble()) * System.Math.Sqrt(-2.0 * System.Math.Log(random.NextDouble()))) + mean);
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Operator Overloads
+        #region Component-Wise Operator Overloads
         
         /// Returns a bool4 from component-wise application of operator&lt; (lhs &lt; rhs).
         public static bool4 operator<(double4 lhs, double4 rhs) => bool4(lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z, lhs.w < rhs.w);
@@ -1384,7 +1384,7 @@ namespace glm
         /// Returns a double4 from component-wise application of operator% (lhs % rhs).
         public static double4 operator%(double lhs, double4 rhs) => double4(lhs % rhs.x, lhs % rhs.y, lhs % rhs.z, lhs % rhs.w);
 
-        //#endregion
+        #endregion
 
     }
 }

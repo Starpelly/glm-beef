@@ -6,15 +6,15 @@ namespace glm
     public struct uint4x2 : IEquatable<uint4x2>
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public uint[8] values;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(uint m00, uint m01, uint m10, uint m11, uint m20, uint m21, uint m30, uint m31)
@@ -94,10 +94,10 @@ namespace glm
             values = .(c0.x,c0.y,c1.x,c1.y,c2.x,c2.y,c3.x,c3.y);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Column 0, Rows 0
         public uint m00
@@ -291,10 +291,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero matrix
         readonly public static uint4x2 Zero  =  uint4x2(0u, 0u, 0u, 0u, 0u, 0u, 0u, 0u);
@@ -317,10 +317,10 @@ namespace glm
         /// Predefined diagonal-MinValue matrix
         readonly public static uint4x2 DiagonalMinValue  =  uint4x2(uint.MinValue, 0u, 0u, uint.MinValue, 0u, 0u, 0u, 0u);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Creates a 2D array with all values (address: Values[x, y])
         public uint[,] ToArray() => new .[,] ( ( m00, m01 ), ( m10, m11 ), ( m20, m21 ), ( m30, m31 ) );
@@ -328,7 +328,7 @@ namespace glm
         /// Creates a 1D array with all values (internal order)
         public uint[] ToArray1D() => new .[] ( m00, m01, m10, m11, m20, m21, m30, m31 );
 
-        //#endregion
+        #endregion
 
         
         /// Returns the number of Fields (4 x 2 = 8).

@@ -6,7 +6,7 @@ namespace glm
     public struct swizzle_double3
     {
 
-        //#region Fields
+        #region Fields
         
         /// x-component
         private readonly double x;
@@ -17,10 +17,10 @@ namespace glm
         /// z-component
         private readonly double z;
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// Returns double3.xx swizzling.
         [Inline]
@@ -958,7 +958,7 @@ namespace glm
         [Inline]
         public double4 bbbb =>  double4(z, z, z, z);
 
-        //#endregion
+        #endregion
 
     }
 }

@@ -7,7 +7,7 @@ namespace glm
     public struct uint4 : IHashable
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public uint[4] values;
@@ -15,10 +15,10 @@ namespace glm
         /// Returns an object that can be used for arbitrary swizzling (e.g. swizzle.zy)
         public readonly swizzle_uint4 swizzle;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(uint x, uint y, uint z, uint w)
@@ -82,10 +82,10 @@ namespace glm
             values = .((c + startIndex < 0) ? 0u : v[0 + startIndex],(c + startIndex < 1) ? 0u : v[1 + startIndex],(c + startIndex < 2) ? 0u : v[2 + startIndex],(c + startIndex < 3) ? 0u : v[3 + startIndex]);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Implicit Operators
+        #region Implicit Operators
         
         /// Implicitly converts this to a long4.
         public static implicit operator long4(uint4 v) =>  long4((long)v.x, (long)v.y, (long)v.z, (long)v.w);
@@ -96,10 +96,10 @@ namespace glm
         /// Implicitly converts this to a double4.
         public static implicit operator double4(uint4 v) =>  double4((double)v.x, (double)v.y, (double)v.z, (double)v.w);
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Explicitly converts this to a int2.
         public static explicit operator int2(uint4 v) =>  int2((int)v.x, (int)v.y);
@@ -143,10 +143,10 @@ namespace glm
         /// Explicitly converts this to a bool4.
         public static explicit operator bool4(uint4 v) =>  bool4(v.x != 0u, v.y != 0u, v.z != 0u, v.w != 0u);
 
-        //#endregion
+        #endregion
 
 
-        //#region Indexer
+        #region Indexer
         
         /// Gets/Sets a specific indexed component (a bit slower than direct access).
         public uint this[int index]
@@ -163,10 +163,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// x-component
         public uint x
@@ -622,10 +622,10 @@ namespace glm
         /// Returns the max-norm of this vector.
         public float NormMax => System.Math.Max(System.Math.Max(x, y), System.Math.Max(z, w));
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero vector
         readonly public static uint4 Zero  =  uint4(0u, 0u, 0u, 0u);
@@ -651,10 +651,10 @@ namespace glm
         /// Predefined all-MinValue vector
         readonly public static uint4 MinValue  =  uint4(uint.MinValue, uint.MinValue, uint.MinValue, uint.MinValue);
 
-        //#endregion
+        #endregion
 
 
-        //#region Operators
+        #region Operators
         
         /// Returns true if this equals rhs component-wise.
         public static bool operator==(uint4 lhs, uint4 rhs) => ((lhs.x == rhs.x && lhs.y == rhs.y) && (lhs.z == rhs.z && lhs.w == rhs.w));
@@ -662,10 +662,10 @@ namespace glm
         /// Returns true if this does not equal rhs (component-wise).
         public static bool operator!=(uint4 lhs, uint4 rhs) => !((lhs.x == rhs.x && lhs.y == rhs.y) && (lhs.z == rhs.z && lhs.w == rhs.w));
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Returns an array with all values
         public uint[] ToArray() => new .[] ( x, y, z, w );
@@ -695,10 +695,10 @@ namespace glm
         /// Returns the p-norm of this vector.
         public double NormP(double p) => System.Math.Pow(((System.Math.Pow((double)x, p) + System.Math.Pow((double)y, p)) + (System.Math.Pow((double)z, p) + System.Math.Pow((double)w, p))), 1 / p);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Functions
+        #region Static Functions
         
         /// OuterProduct treats the first parameter c as a column vector (matrix with one column) and the second parameter r as a row vector (matrix with one row) and does a linear algebraic matrix multiply c * r, yielding a matrix whose number of rows is the number of components in c and whose number of columns is the number of components in r.
         public static uint4x2 OuterProduct(uint2 c, uint4 r) =>  uint4x2(c.x * r.x, c.y * r.x, c.x * r.y, c.y * r.y, c.x * r.z, c.y * r.z, c.x * r.w, c.y * r.w);
@@ -727,10 +727,10 @@ namespace glm
         /// Returns a uint4 with independent and identically distributed uniform integer values between 0 (inclusive) and int.MaxValue (exclusive).
         public static uint4 Random(Random random) =>  uint4((uint)random.Next(int64.MaxValue), (uint)random.Next(int64.MaxValue), (uint)random.Next(int64.MaxValue), (uint)random.Next(int64.MaxValue));
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Static Functions
+        #region Component-Wise Static Functions
         
         /// Returns a bool4 from component-wise application of Equal (lhs == rhs).
         public static bool4 Equal(uint4 lhs, uint4 rhs) => bool4(lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z, lhs.w == rhs.w);
@@ -1146,10 +1146,10 @@ namespace glm
         /// Returns a uint4 with independent and identically distributed uniform integer values between minValue (inclusive) and maxValue (exclusive). (minValue == maxValue is allowed and returns minValue. Negative values are allowed.)
         public static uint4 RandomUniform(Random random, uint minValue, uint maxValue) => uint4((uint)random.Next((int)minValue, (int)maxValue));
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Operator Overloads
+        #region Component-Wise Operator Overloads
         
         /// Returns a bool4 from component-wise application of operator&lt; (lhs &lt; rhs).
         public static bool4 operator<(uint4 lhs, uint4 rhs) => bool4(lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z, lhs.w < rhs.w);
@@ -1259,7 +1259,7 @@ namespace glm
         /// Returns a uint4 from component-wise application of operator&gt;&gt; (lhs &gt;&gt; rhs).
         public static uint4 operator>>(uint4 lhs, int rhs) => uint4(lhs.x >> rhs, lhs.y >> rhs, lhs.z >> rhs, lhs.w >> rhs);
 
-        //#endregion
+        #endregion
 
     }
 }

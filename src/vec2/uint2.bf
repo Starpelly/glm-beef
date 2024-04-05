@@ -7,7 +7,7 @@ namespace glm
     public struct uint2 : IHashable
     {
 
-        //#region Fields
+        #region Fields
         
         /// component data
         public uint[2] values;
@@ -15,10 +15,10 @@ namespace glm
         /// Returns an object that can be used for arbitrary swizzling (e.g. swizzle.zy)
         public readonly swizzle_uint2 swizzle;
 
-        //#endregion
+        #endregion
 
 
-        //#region Constructors
+        #region Constructors
         
         /// Component-wise constructor
         public this(uint x, uint y)
@@ -64,10 +64,10 @@ namespace glm
             values = .((c + startIndex < 0) ? 0u : v[0 + startIndex],(c + startIndex < 1) ? 0u : v[1 + startIndex]);
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Implicit Operators
+        #region Implicit Operators
         
         /// Implicitly converts this to a long2.
         public static implicit operator long2(uint2 v) =>  long2((long)v.x, (long)v.y);
@@ -78,10 +78,10 @@ namespace glm
         /// Implicitly converts this to a double2.
         public static implicit operator double2(uint2 v) =>  double2((double)v.x, (double)v.y);
 
-        //#endregion
+        #endregion
 
 
-        //#region Explicit Operators
+        #region Explicit Operators
         
         /// Explicitly converts this to a int2.
         public static explicit operator int2(uint2 v) =>  int2((int)v.x, (int)v.y);
@@ -125,10 +125,10 @@ namespace glm
         /// Explicitly converts this to a bool4. (Higher components are zeroed)
         public static explicit operator bool4(uint2 v) =>  bool4(v.x != 0u, v.y != 0u, false, false);
 
-        //#endregion
+        #endregion
 
 
-        //#region Indexer
+        #region Indexer
         
         /// Gets/Sets a specific indexed component (a bit slower than direct access).
         public uint this[int index]
@@ -145,10 +145,10 @@ namespace glm
             }
         }
 
-        //#endregion
+        #endregion
 
 
-        //#region Properties
+        #region Properties
         
         /// x-component
         public uint x
@@ -286,10 +286,10 @@ namespace glm
         /// Returns the max-norm of this vector.
         public float NormMax => System.Math.Max(x, y);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Properties
+        #region Static Properties
         
         /// Predefined all-zero vector
         readonly public static uint2 Zero  =  uint2(0u, 0u);
@@ -309,10 +309,10 @@ namespace glm
         /// Predefined all-MinValue vector
         readonly public static uint2 MinValue  =  uint2(uint.MinValue, uint.MinValue);
 
-        //#endregion
+        #endregion
 
 
-        //#region Operators
+        #region Operators
         
         /// Returns true if this equals rhs component-wise.
         public static bool operator==(uint2 lhs, uint2 rhs) => (lhs.x == rhs.x && lhs.y == rhs.y);
@@ -320,10 +320,10 @@ namespace glm
         /// Returns true if this does not equal rhs (component-wise).
         public static bool operator!=(uint2 lhs, uint2 rhs) => !(lhs.x == rhs.x && lhs.y == rhs.y);
 
-        //#endregion
+        #endregion
 
 
-        //#region Functions
+        #region Functions
         
         /// Returns an array with all values
         public uint[] ToArray() => new .[] ( x, y );
@@ -351,10 +351,10 @@ namespace glm
         /// Returns the p-norm of this vector.
         public double NormP(double p) => System.Math.Pow((System.Math.Pow((double)x, p) + System.Math.Pow((double)y, p)), 1 / p);
 
-        //#endregion
+        #endregion
 
 
-        //#region Static Functions
+        #region Static Functions
         
         /// OuterProduct treats the first parameter c as a column vector (matrix with one column) and the second parameter r as a row vector (matrix with one row) and does a linear algebraic matrix multiply c * r, yielding a matrix whose number of rows is the number of components in c and whose number of columns is the number of components in r.
         public static uint2x2 OuterProduct(uint2 c, uint2 r) =>  uint2x2(c.x * r.x, c.y * r.x, c.x * r.y, c.y * r.y);
@@ -386,10 +386,10 @@ namespace glm
         /// Returns a uint2 with independent and identically distributed uniform integer values between 0 (inclusive) and int.MaxValue (exclusive).
         public static uint2 Random(Random random) =>  uint2((uint)random.Next(int64.MaxValue), (uint)random.Next(int64.MaxValue));
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Static Functions
+        #region Component-Wise Static Functions
         
         /// Returns a bool2 from component-wise application of Equal (lhs == rhs).
         public static bool2 Equal(uint2 lhs, uint2 rhs) => bool2(lhs.x == rhs.x, lhs.y == rhs.y);
@@ -805,10 +805,10 @@ namespace glm
         /// Returns a uint2 with independent and identically distributed uniform integer values between minValue (inclusive) and maxValue (exclusive). (minValue == maxValue is allowed and returns minValue. Negative values are allowed.)
         public static uint2 RandomUniform(Random random, uint minValue, uint maxValue) => uint2((uint)random.Next((int)minValue, (int)maxValue));
 
-        //#endregion
+        #endregion
 
 
-        //#region Component-Wise Operator Overloads
+        #region Component-Wise Operator Overloads
         
         /// Returns a bool2 from component-wise application of operator&lt; (lhs &lt; rhs).
         public static bool2 operator<(uint2 lhs, uint2 rhs) => bool2(lhs.x < rhs.x, lhs.y < rhs.y);
@@ -918,7 +918,7 @@ namespace glm
         /// Returns a uint2 from component-wise application of operator&gt;&gt; (lhs &gt;&gt; rhs).
         public static uint2 operator>>(uint2 lhs, int rhs) => uint2(lhs.x >> rhs, lhs.y >> rhs);
 
-        //#endregion
+        #endregion
 
     }
 }
